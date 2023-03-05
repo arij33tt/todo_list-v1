@@ -18,7 +18,7 @@ app.use(express.static("public"))
 
 // ?retryWrites=true&w=majority
 
-mongoose.connect("mongodb+srv://arijeet:arijeet123@ejstodo.m2bzlqj.mongodb.net/toDoList", { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect("mongodb+srv://<username>:<password>@ejstodo.m2bzlqj.mongodb.net/<data base name >", { useNewUrlParser: true, useUnifiedTopology: true });
 
 
 const itemSchema = {
