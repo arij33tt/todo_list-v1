@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -15,18 +16,21 @@
 </div>
 
 <div class="box">
-    
-<% for(var i=0;i< newListItems.length;i++){ %>
+
+  <% newListItems.forEach(function(item){ %>
+        <form action="/delete" method="post">
         <div class="item">
-            <input type="checkbox">
-            <p> <%= newListItems[i] %></p>
+            <input type="checkbox" name="checkbox" value="<%=item._id%>" onchange="this.form.submit()">
+            <p> <%= item.name %></p>
         </div>
-  <%} %>
+        <input type="hidden"  name="listName" value="<%= ListTitle %>"> </input>  
+    </form>
+   <% })%>
 
    
   <form action="/" method="post" class="item">
     <input type="text" name="newItem" placeholder="New Item">
-    <button type="submit" name="button">+</button> 
+    <button type="submit" name="list" value="<%= ListTitle %>">+</button> 
    </form>
 
     </div>
